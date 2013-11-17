@@ -18,7 +18,7 @@ gem 'faker'
 gem 'devise'
 gem 'newrelic_rpm'
 gem 'jquery-rails'
-
+gem 'cancan'
 
 # Gems used only for assets and not required
 # in production environments by default.
