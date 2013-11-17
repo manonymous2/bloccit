@@ -2,15 +2,15 @@ Bloccit::Application.routes.draw do
 
   devise_for :users
 
-  get "welcome/index"
+  resources :topics do
+    resources :posts, except: [:index]
+  end
 
-  get "welcome/about"
-
-   resources :posts
 
   match "about" => 'welcome#about', via: :get
 
   root :to => 'welcome#index'
+
   
 
   # The priority is based upon order of creation:
