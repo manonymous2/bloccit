@@ -22,11 +22,13 @@
       <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-large btn-block' %>
     <% end %>
   </div>
-
-   <small>
-    submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
-    <%= post.comments.count %> Comments
+ <small>
+            <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
+            submitted <%= time_ago_in_words(post.created_at) %> ago by 
+            <%= post.user.name %><br/>
+            <%= post.comments.count %> Comments
   </small>
+
 
   
 </div>
