@@ -1,17 +1,20 @@
 class TopicsController < ApplicationController
-  def index
-    @topics = Topic.all
+   def index
+    # @topics = Topic.all (remove this line)
+    @topics = Topic.paginate(page: params[:page], per_page: 10) # add this line
   end
+
 
   def new
     @topic = Topic.new
     authorize! :create, @topic, message: "You need to be an admin to do that."
   end
 
-  def show
+   def show
     @topic = Topic.find(params[:id])
-    @posts = @topic.posts
-  end
+    # @posts = @topic.posts (remove this line)
+    @posts = @topic.posts.paginate(page: params[:page], per_page: 10) # add this line
+  end  
 
   def edit
     @topic = Topic.find(params[:id])
