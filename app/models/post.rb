@@ -10,4 +10,10 @@ class Post < ActiveRecord::Base
   validates :body, length: { minimum: 20 }, presence: true
   validates :topic, presence: true
   validates :user, presence: true  
+
+  # models/topic.rb
+class Topic < ActiveRecord::Base
+  attr_accessible :description, :name, :public
+  has_many :posts
+end
 end
